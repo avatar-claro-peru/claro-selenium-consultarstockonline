@@ -1,1 +1,1 @@
-# claro-selenium Proyecto sobre pruebas automatizadas
+# claro-selenium-consultarstockonline Proyecto sobre pruebas automatizadas

@@ -1,6 +1,6 @@
 @web
 
-Feature: Iniciar sesion en Sisac Avatar 
+Feature: Iniciar sesion en el proyecto web: ConsultarStockOnlineClaroAvatar
 	Como usuario Avatar quiero loguearme para realizar unas pruebas automatizadas
 	
 	Scenario: Registrar Trackingstock
