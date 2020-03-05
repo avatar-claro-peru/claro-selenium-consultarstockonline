@@ -35,11 +35,13 @@ public class StockOnlineSteps {
 
 	@Then("^Se registra correctamente$")
 	public void se_registra_correctamente() throws Throwable {
-		Thread.sleep(4000);
+		
 	}
 
 	@Given("^hace clic en boton Editar$")
 	public void hace_clic_en_boton_Editar(DataTable dt) throws Throwable {
+		driver2.close();
+		Thread.sleep(10000);
 		StockOnlineLogic.clickEditButton(dt);
 	}
 
@@ -55,18 +57,17 @@ public class StockOnlineSteps {
 
 	@Then("^Se actualiza correctamente$")
 	public void se_actualiza_correctamente() throws Throwable {
-//		Thread.sleep(4000);
+		
 	}
 
 	@Given("^hace clic en boton Eliminar$")
 	public void hace_clic_en_boton_Eliminar(DataTable dt) throws Throwable {
+		driver2.close();
 		StockOnlineLogic.clickDeleteButton(dt);
-//		Thread.sleep(4000);
 	}
 
 	@Then("^Se elimina correctamente$")
 	public void se_elimina_correctamente() throws Throwable {
-//		Thread.sleep(4000);
 		driver2.quit();
 	}
 

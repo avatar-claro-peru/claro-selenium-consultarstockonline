@@ -42,24 +42,27 @@ public class StockOnlineLogic {
 	public static void clickSaveButton() throws InterruptedException {
 		WebElement button = driver2.findElement(By.id("btnGuardar"));
 		button.click();
-		Thread.sleep(4000);
+//		Thread.sleep(4000);
 	}
 
 	public static void clickEditButton(DataTable data) throws InterruptedException {
-		
 		List<List<String>> dat = data.raw();
 		WebElement button = null;
-
-		for (int i = 1; i < 100; i++) {
-			String id = driver2.findElement(By.id("tbl_trackingstock")).findElement(By.xpath("//tbody/tr[" + i + "]/td[1]")).getText();
+		String id = "";
+		Thread.sleep(4000);
+		
+		for (int i = 1; i < 50; i++) {
+			WebElement base = driver2.findElement(By.id("tbl_trackingstock"));
+			List<WebElement> tableRows = base.findElements(By.tagName("tr"));
+			List<WebElement> tableCols = tableRows.get(i).findElements(By.tagName("td"));
+			id = tableCols.get(1).getText();
 			
-			if (id != null && id.equalsIgnoreCase(dat.get(0).get(0))) {
-				button = driver2.findElement(By.id("tbl_trackingstock")).findElement(By.xpath("//tbody/tr[" + i +"]/td[7]")).findElement(By.id("btnEditar"));
+			if (id.equalsIgnoreCase(dat.get(0).get(0))) {
+				button = tableCols.get(6).findElement(By.id("btnEditar"));
 				break;
 			}
 		}
 		button.click();
-		Thread.sleep(4000);
 	}
 
 	public static void completeStockFormUpdate(DataTable data) throws InterruptedException {
@@ -88,16 +91,20 @@ public class StockOnlineLogic {
 	public static void clickDeleteButton(DataTable data) throws InterruptedException {
 		List<List<String>> dat = data.raw();
 		WebElement button = null;
-
-		for (int i = 1; i < 100; i++) {
-			String id = driver2.findElement(By.id("tbl_trackingstock")).findElement(By.xpath("//tbody/tr[" + i + "]/td[1]")).getText();
+		String id = "";
+		Thread.sleep(4000);
+		
+		for (int i = 1; i < 50; i++) {
+			WebElement base = driver2.findElement(By.id("tbl_trackingstock"));
+			List<WebElement> tableRows = base.findElements(By.tagName("tr"));
+			List<WebElement> tableCols = tableRows.get(i).findElements(By.tagName("td"));
+			id = tableCols.get(1).getText();
 			
-			if (id != null && id.equalsIgnoreCase(dat.get(0).get(0))) {
-				button = driver2.findElement(By.id("tbl_trackingstock")).findElement(By.xpath("//tbody/tr[" + i +"]/td[7]")).findElement(By.id("btnEliminar"));
+			if (id.equalsIgnoreCase(dat.get(0).get(0))) {
+				button = tableCols.get(6).findElement(By.id("btnEliminar"));
 				break;
 			}
 		}
-		
 		button.click();
 	}
 
